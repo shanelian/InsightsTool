@@ -76,11 +76,11 @@
 
 	var _Full = __webpack_require__(411);
 
-	var _user_reducer = __webpack_require__(702);
+	var _user_reducer = __webpack_require__(704);
 
 	var _user_reducer2 = _interopRequireDefault(_user_reducer);
 
-	var _initialState = __webpack_require__(704);
+	var _initialState = __webpack_require__(706);
 
 	var _initialState2 = _interopRequireDefault(_initialState);
 
@@ -35758,7 +35758,9 @@
 
 	var _Personal2 = _interopRequireDefault(_Personal);
 
-	var _User_profile = __webpack_require__(705);
+	var _Customer_Service = __webpack_require__(702);
+
+	var _User_profile = __webpack_require__(703);
 
 	var _User_profile2 = _interopRequireDefault(_User_profile);
 
@@ -35796,6 +35798,7 @@
 	                _react2.default.createElement(_reactRouterDom.Route, { path: '/order', name: 'Orders', component: _Orders.OrderContainer }),
 	                _react2.default.createElement(_reactRouterDom.Route, { path: '/email', name: 'Email', component: _Email2.default }),
 	                _react2.default.createElement(_reactRouterDom.Route, { path: '/personal', name: 'Personal', component: _Personal2.default }),
+	                _react2.default.createElement(_reactRouterDom.Route, { path: '/customer_service', name: 'Customer Service', component: _Customer_Service.CustomerServiceContainer }),
 	                _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/order' })
 	              )
 	            )
@@ -42558,6 +42561,12 @@
 	                { to: '/personal', className: 'nav-link', activeClassName: 'active' },
 	                _react2.default.createElement('i', { className: 'icon-user' }),
 	                'Personal'
+	              ),
+	              _react2.default.createElement(
+	                _reactRouterDom.NavLink,
+	                { to: '/customer_service', className: 'nav-link', activeClassName: 'active' },
+	                _react2.default.createElement('i', { className: 'icon-phone' }),
+	                'Customer Service'
 	              )
 	            )
 	          )
@@ -78773,62 +78782,84 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.CustomerServiceContainer = undefined;
 
-	var _assign = __webpack_require__(703);
+	var _getPrototypeOf = __webpack_require__(412);
 
-	var _assign2 = _interopRequireDefault(_assign);
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-	var _initialState = __webpack_require__(704);
+	var _classCallCheck2 = __webpack_require__(413);
 
-	var _initialState2 = _interopRequireDefault(_initialState);
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(414);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(416);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(420);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(178);
+
+	var _Timeline = __webpack_require__(505);
+
+	var _Timeline2 = _interopRequireDefault(_Timeline);
+
+	var _Detail = __webpack_require__(683);
+
+	var _Detail2 = _interopRequireDefault(_Detail);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function setUserData(state, userData) {
-	  console.log('UserData: ', userData);
-	  return (0, _assign2.default)({}, state, { userData: userData });
-	}
+	var CustomerService = function (_Component) {
+	  (0, _inherits3.default)(CustomerService, _Component);
 
-	var userReducer = function userReducer() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _initialState2.default)();
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case 'UPDATE_USER_DATA':
-	      return setUserData(state, action.data);
-	    default:
-	      return state;
+	  function CustomerService(props) {
+	    (0, _classCallCheck3.default)(this, CustomerService);
+	    return (0, _possibleConstructorReturn3.default)(this, (CustomerService.__proto__ || (0, _getPrototypeOf2.default)(CustomerService)).call(this, props));
 	  }
-	};
 
-	exports.default = userReducer;
-
-/***/ },
-/* 703 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(428), __esModule: true };
-
-/***/ },
-/* 704 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  return {
-	    user: {
-	      userData: {}
+	  (0, _createClass3.default)(CustomerService, [{
+	    key: 'render',
+	    value: function render() {
+	      var response = this.props.userData;
+	      if (!response) {
+	        response = 'No data yet';
+	      }
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'animated fadeIn' },
+	        _react2.default.createElement(_Timeline2.default, {
+	          timelineType: 'Customer Service'
+	        }),
+	        _react2.default.createElement(_Detail2.default, {
+	          timelineType: 'Customer Service'
+	        })
+	      );
 	    }
+	  }]);
+	  return CustomerService;
+	}(_react.Component);
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    userData: state.userData
 	  };
 	};
 
+	var CustomerServiceContainer = exports.CustomerServiceContainer = (0, _reactRedux.connect)(mapStateToProps, null)(CustomerService);
+
 /***/ },
-/* 705 */
+/* 703 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78918,6 +78949,69 @@
 	}(_react2.default.Component);
 
 	exports.default = UserProfile;
+
+/***/ },
+/* 704 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _assign = __webpack_require__(705);
+
+	var _assign2 = _interopRequireDefault(_assign);
+
+	var _initialState = __webpack_require__(706);
+
+	var _initialState2 = _interopRequireDefault(_initialState);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function setUserData(state, userData) {
+	  console.log('UserData: ', userData);
+	  return (0, _assign2.default)({}, state, { userData: userData });
+	}
+
+	var userReducer = function userReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _initialState2.default)();
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'UPDATE_USER_DATA':
+	      return setUserData(state, action.data);
+	    default:
+	      return state;
+	  }
+	};
+
+	exports.default = userReducer;
+
+/***/ },
+/* 705 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(428), __esModule: true };
+
+/***/ },
+/* 706 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  return {
+	    user: {
+	      userData: {}
+	    }
+	  };
+	};
 
 /***/ }
 /******/ ]);

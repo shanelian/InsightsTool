@@ -7,6 +7,7 @@ import Aside from '../components/Aside/Aside'
 import { OrderContainer } from '../views/Order/Orders'
 import Email from '../views/Email/Email'
 import Personal from '../views/Personal/Personal'
+import { CustomerServiceContainer } from '../views/Customer Service/Customer_Service'
 import UserProfile from '../components/User_profile'
 
 class Full extends Component {
@@ -23,6 +24,7 @@ class Full extends Component {
                 <Route path="/order" name="Orders" component={OrderContainer} />
                 <Route path="/email" name="Email" component={Email} />
                 <Route path="/personal" name="Personal" component={Personal} />
+                <Route path="/customer_service" name="Customer Service" component={CustomerServiceContainer} />
                 <Redirect from="/" to="/order" />
               </Switch>
             </div>

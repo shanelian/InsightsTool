@@ -31,6 +31,10 @@ class Sidebar extends Component {
                 <i className="icon-user"></i>
                 Personal
               </NavLink>
+              <NavLink to={'/customer_service'} className="nav-link" activeClassName="active">
+                <i className="icon-phone"></i>
+                Customer Service
+              </NavLink>
             </li>
           </ul>
         </nav>
