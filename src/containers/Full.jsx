@@ -7,6 +7,7 @@ import Aside from '../components/Aside/Aside'
 import { OrderContainer } from '../views/Order/Orders'
 import Email from '../views/Email/Email'
 import Personal from '../views/Personal/Personal'
+import UserProfile from '../components/User_profile'
 
 class Full extends Component {
   render() {
@@ -16,6 +17,7 @@ class Full extends Component {
         <div className="app-body">
           <Sidebar {...this.props} />
           <main className="main">
+            <UserProfile />
             <div className="container-fluid">
               <Switch>
                 <Route path="/order" name="Orders" component={OrderContainer} />

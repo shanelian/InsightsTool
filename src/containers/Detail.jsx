@@ -1,6 +1,6 @@
 import { Paper } from 'material-ui'
 import React from 'react'
-import { Dropdown, DropdownMenu, DropdownItem, Progress } from 'reactstrap';
+import { Dropdown, DropdownMenu, DropdownItem, Progress } from 'reactstrap'
 
 export default class Detail extends React.Component {
   constructor(props) {

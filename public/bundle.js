@@ -35758,6 +35758,10 @@
 
 	var _Personal2 = _interopRequireDefault(_Personal);
 
+	var _User_profile = __webpack_require__(705);
+
+	var _User_profile2 = _interopRequireDefault(_User_profile);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Full = function (_Component) {
@@ -35782,6 +35786,7 @@
 	          _react2.default.createElement(
 	            'main',
 	            { className: 'main' },
+	            _react2.default.createElement(_User_profile2.default, null),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'container-fluid' },
@@ -36030,8 +36035,6 @@
 
 	var _user_actions = __webpack_require__(501);
 
-	var _user_actions2 = _interopRequireDefault(_user_actions);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Header = function (_Component) {
@@ -36186,7 +36189,7 @@
 	  return Header;
 	}(_react.Component);
 
-	var HeaderContainer = exports.HeaderContainer = (0, _reactRedux.connect)(null, _user_actions2.default)(Header);
+	var HeaderContainer = exports.HeaderContainer = (0, _reactRedux.connect)(null, _user_actions.userActions)(Header);
 
 /***/ },
 /* 424 */
@@ -78823,6 +78826,98 @@
 	    }
 	  };
 	};
+
+/***/ },
+/* 705 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(412);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(413);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(414);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(416);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(420);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var UserProfile = function (_React$Component) {
+	  (0, _inherits3.default)(UserProfile, _React$Component);
+
+	  function UserProfile(props) {
+	    (0, _classCallCheck3.default)(this, UserProfile);
+
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (UserProfile.__proto__ || (0, _getPrototypeOf2.default)(UserProfile)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  (0, _createClass3.default)(UserProfile, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        {
+	          className: 'container-fluid',
+	          style: {
+	            display: 'flex',
+	            alignItems: 'center',
+	            justifyContent: 'center',
+	            backgroundColor: 'grey',
+	            minHeight: '200px'
+	          }
+	        },
+	        _react2.default.createElement(
+	          'div',
+	          {
+	            className: 'col'
+	          },
+	          'User Name'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          {
+	            className: 'col'
+	          },
+	          'Other info'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          {
+	            className: 'col'
+	          },
+	          'Other info'
+	        )
+	      );
+	    }
+	  }]);
+	  return UserProfile;
+	}(_react2.default.Component);
+
+	exports.default = UserProfile;
 
 /***/ }
 /******/ ]);

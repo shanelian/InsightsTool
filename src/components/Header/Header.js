@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
 import axios from 'axios'
-import userActions from '../../action_creators/user_actions'
+import { userActions } from '../../action_creators/user_actions'
 
 class Header extends Component {
   constructor(props) {
