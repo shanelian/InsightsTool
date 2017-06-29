@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Timeline from '../../containers/Timeline'
 
 class Personal extends Component {
 
   render() {
     return (
       <div className="animated fadeIn">
-        Hello World from personal
+        <Timeline
+          timelineType="Personal"
+        />
       </div>
     )
   }

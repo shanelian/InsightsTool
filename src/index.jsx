@@ -34,5 +34,5 @@ ReactDOM.render(
       </HashRouter>
     </MuiThemeProvider>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )

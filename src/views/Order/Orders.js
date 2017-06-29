@@ -1,5 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Timeline from '../../containers/Timeline'
+import Detail from '../../containers/Detail'
 
 class Order extends Component {
   constructor(props) {
@@ -14,6 +16,12 @@ class Order extends Component {
     return (
       <div className="animated fadeIn">
         {response}
+        <Timeline
+          timelineType="Orders"
+        />
+        <Detail
+          timelineType="Orders"
+        />
       </div>
     )
   }
