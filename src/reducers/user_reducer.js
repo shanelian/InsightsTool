@@ -1,17 +1,17 @@
-import util from 'util'
 import initialState from '../initialState'
 
-function setReduxOn(state) {
-  return Object.assign({}, state, { isReduxOn: true })
+function setUserData(state, userData) {
+  console.log('UserData: ', userData)
+  return Object.assign({}, state, { userData })
 }
 
-const myreducer = (state = initialState(), action) => {
+const userReducer = (state = initialState(), action) => {
   switch (action.type) {
-    case 'SET_REDUX_ON':
-      return setReduxOn(state)
+    case 'UPDATE_USER_DATA':
+      return setUserData(state, action.data)
     default:
       return state
   }
 }
 
-export default myreducer
+export default userReducer

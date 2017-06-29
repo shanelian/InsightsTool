@@ -1,7 +1,7 @@
-// @flow
-
-export default function (): Object {
+export default function () {
   return {
-    isReduxOn: false
+    user: {
+      userData: {},
+    },
   }
 }

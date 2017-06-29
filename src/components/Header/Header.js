@@ -1,13 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton'
+import { connect } from 'react-redux'
+import axios from 'axios'
+import userActions from '../../action_creators/user_actions'
 
 class Header extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      userId: 0
+      userId: 0,
     }
   }
 
@@ -31,32 +34,60 @@ class Header extends Component {
     document.body.classList.toggle('aside-menu-hidden');
   }
 
-  handleSearchBarInput (event, newValue) {
+  handleSearchBarInput(event, newValue) {
     this.setState({
-      userId: newValue
+      userId: newValue,
     })
   }
 
-  handleSubmitUserId () {
-    console.log('Clicked')
+  handleSubmitUserId(e) {
+    e.preventDefault()
+    axios.get('/get_user_data_with_id', {
+      params: {
+        userId: this.state.userId,
+      },
+    })
+      .then((response) => {
+      console.log('Response Data: ', response.data)
+        this.props.dispatch(
+          {
+            type: 'UPDATE_USER_DATA',
+            data: response.data,
+          },
+        )
+      })
   }
 
   render() {
     return (
-      <header className="app-header navbar">
-        <button className="navbar-toggler mobile-sidebar-toggler d-lg-none" onClick={this.mobileSidebarToggle}
-                type="button">&#9776;</button>
-        <a className="navbar-brand" href="#"
-           style={{
-             float: 'left'
-           }}
+      <header
+        className="app-header navbar"
+      >
+        <button
+          className="navbar-toggler mobile-sidebar-toggler d-lg-none"
+          onClick={this.mobileSidebarToggle}
+          type="button"
+        >
+          &#9776;
+        </button>
+        <a
+          className="navbar-brand"
+          href="#"
+          style={{
+            float: 'left',
+          }}
         >
         </a>
         <h5>Honest Insights</h5>
         <ul className="nav navbar-nav d-md-down-none mr-auto">
           <li className="nav-item">
-            <button className="nav-link navbar-toggler sidebar-toggler" type="button"
-                    onClick={this.sidebarToggle}>&#9776;</button>
+            <button
+              className="nav-link navbar-toggler sidebar-toggler"
+              type="button"
+              onClick={this.sidebarToggle}
+            >
+              &#9776;
+            </button>
           </li>
           <li>
             <div
@@ -70,7 +101,7 @@ class Header extends Component {
                 style={{
                   color: '#CCCCCC',
                   position: 'relative',
-                  bottom: '-7'
+                  bottom: '-7',
                 }}
               >
                 search
@@ -78,14 +109,14 @@ class Header extends Component {
               <TextField
                 hintText="Search User ID"
                 style={{
-                  marginRight: '20px'
+                  marginRight: '20px',
                 }}
                 onChange={this.handleSearchBarInput.bind(this)}
               >
               </TextField>
               <RaisedButton
                 label="Search"
-                primary={true}
+                primary
                 onTouchTap={this.handleSubmitUserId.bind(this)}
               />
             </div>
@@ -96,4 +127,7 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export const HeaderContainer = connect(
+  null,
+  userActions,
+)(Header)

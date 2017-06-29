@@ -4,9 +4,10 @@ const app = express()
 
 app.use('/', express.static('public'))
 
-app.get('/get_image', async (req, res, next) => {
+app.get('/get_user_data_with_id', async (req, res, next) => {
   try {
-    const statement = await "This is the reponse"
+    const statement = await 'This is the sample user data'
+    console.log('Server hit with query:', req.query)
     res.status(200)
     res.send(statement)
   } catch (error) {

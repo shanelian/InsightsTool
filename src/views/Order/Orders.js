@@ -1,28 +1,31 @@
-import React, {Component} from 'react';
-import axios from 'axios'
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
 
 class Order extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-    }
-  }
-
-  componentDidMount() {
-    axios.get('/get_image')
-      .then((response, state) => {
-        console.log('Response: ', response)
-      })
   }
 
   render() {
+    let response = this.props.userData
+    if (!response) {
+      response = 'No data yet'
+    }
     return (
       <div className="animated fadeIn">
-        Hello World from Order
+        {response}
       </div>
     )
   }
 }
 
-export default Order;
+const mapStateToProps = (state) => {
+  return {
+    userData: state.userData,
+  }
+}
+
+export const OrderContainer = connect(
+  mapStateToProps,
+  null,
+)(Order)
