@@ -1,7 +1,8 @@
 {
   "userName": "Shane Smith",
   "timeData": [
-    "2017/06/28/03:10:38": {
+    {
+      "time": "2017/06/28/03:10:38",
       "event_category": "Email",
       "event_description": "Email Sent",
       "metaData": {
@@ -10,6 +11,7 @@
       },
       "media": "website"
     },
+
     "2017/05/3/06:10:38": {
       "event_category": "Order",
       "event_description": "Order Shipped",

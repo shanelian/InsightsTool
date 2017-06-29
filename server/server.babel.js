@@ -6,8 +6,10 @@ const app = express()
 app.use('/', express.static('public'))
 
 async function fetchEmailData(userId) {
-  http.request('http://staging-cassandra-as-a-service-1432455979.us-east-1.elb.amazonaws.com/realtimeget/v1?uber=u_7078804', (response) => {
-    console.log('Response :', response.data)
+  http.request(
+    'http://staging-cassandra-as-a-service-1432455979.us-east-1.elb.amazonaws.com/realtimeget/v1?uber=u_100989982',
+    (response) => {
+
   }).on('Error', (e) => {
     console.log('Error: ', e)
   }).end()
