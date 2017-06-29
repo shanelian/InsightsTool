@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "latest",
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-class-properties",
+    "transform-flow-strip-types",
+    "syntax-async-functions",
+    "transform-regenerator"
+  ]
+}
