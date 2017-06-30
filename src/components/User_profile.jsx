@@ -9,12 +9,17 @@ export default class UserProfile extends React.Component {
 
     this.state = {
       chart1Data: [],
+      scoreColor: "danger",
     }
   }
 
+  componentWillUpdate() {
+    this.getScoreColor()
+  }
+
   getChartData() {
-    const data1 = [75, 78, 63, 53, 34, 21, 12]
-    const data2 = [65, 59, 84, 84, 51, 55, 40]
+    const data1 = [75, 78, 63, 53, 34, 30, 23]
+    const data2 = [65, 59, 84, 84, 51, 62, 89]
     const data3 = [12, 34, 45, 65, 78, 89, 97]
     switch (this.props.userData.userId) {
       case 1:
@@ -24,7 +29,6 @@ export default class UserProfile extends React.Component {
       case 3:
         return data3
     }
-
   }
 
   buildChartData() {
@@ -38,7 +42,7 @@ export default class UserProfile extends React.Component {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
         {
-          label: 'My First dataset',
+          label: 'User Rentention Score',
           backgroundColor: brandPrimary,
           borderColor: 'rgba(255,255,255,.55)',
           data: this.getChartData(),
@@ -74,58 +78,6 @@ export default class UserProfile extends React.Component {
       },
       elements: {
         line: {
-          borderWidth: 1
-        },
-        point: {
-          radius: 4,
-          hitRadius: 10,
-          hoverRadius: 4,
-        },
-      }
-    }
-
-// Card Chart 2
-    const cardChartData2 = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label: 'My First dataset',
-          backgroundColor: brandInfo,
-          borderColor: 'rgba(255,255,255,.55)',
-          data: [1, 18, 9, 17, 34, 22, 11],
-        },
-      ],
-    };
-
-    const cardChartOpts2 = {
-      maintainAspectRatio: false,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          gridLines: {
-            color: 'transparent',
-            zeroLineColor: 'transparent'
-          },
-          ticks: {
-            fontSize: 2,
-            fontColor: 'transparent',
-          }
-
-        }],
-        yAxes: [{
-          display: false,
-          ticks: {
-            display: false,
-            min: Math.min.apply(Math, cardChartData2.datasets[0].data) - 5,
-            max: Math.max.apply(Math, cardChartData2.datasets[0].data) + 5,
-          }
-        }],
-      },
-      elements: {
-        line: {
-          tension: 0.00001,
           borderWidth: 1,
         },
         point: {
@@ -133,8 +85,9 @@ export default class UserProfile extends React.Component {
           hitRadius: 10,
           hoverRadius: 4,
         },
-      }
+      },
     }
+
     return (
       <div className="col card card-inverse card-primary">
         <div className="card-block pb-0">
@@ -167,6 +120,38 @@ export default class UserProfile extends React.Component {
     )
   }
 
+  getScoreColor() {
+    if (this.props.userData) {
+      if (this.props.userData.rententionScore < 30) {
+        this.setState({
+          scoreColor: "danger"
+        })
+      } else if (this.props.userData.rententionScore >= 30 && this.props.userData.rententionScore < 70) {
+        this.setState({
+          scoreColor: "info"
+        })
+      } else {
+        this.setState({
+          scoreColor: "success"
+        })
+      }
+
+      if ((this.props.userData.LTV / 10000) < 0.3) {
+        this.setState({
+          LTVColor: "danger"
+        })
+      } else if ((this.props.userData.LTV / 10000) >= 0.3 && (this.props.userData.LTV / 10000) < 0.7) {
+        this.setState({
+          LTVColor: "info"
+        })
+      } else {
+        this.setState({
+          LTVColor: "success"
+        })
+      }
+    }
+  }
+
   render() {
     if (this.props.userData) {
       const chart = this.buildChartData()
@@ -195,16 +180,16 @@ export default class UserProfile extends React.Component {
                   <div>
                     <p style={{ fontSize: '20px' }}>Retention Score</p>
                   </div>
-                  <Progress className="progress-xs my-1" color="danger" value={this.props.userData.rententionScore}/>
+                  <Progress className="progress-xs my-1" color={this.state.scoreColor} value={this.props.userData.rententionScore}/>
                 </div>
               </div>
               <div className="card">
                 <div className="card-block">
-                  <div className="h4 m-0">{this.props.userData.LTV}</div>
+                  <div className="h4 m-0">$ {this.props.userData.LTV}</div>
                   <div>
                     <p style={{ fontSize: '20px' }}>LTV (Life time value)</p>
                   </div>
-                  <Progress className="progress-xs my-1" color="info" value={this.props.userData.LTV} />
+                  <Progress className="progress-xs my-1" color={this.state.LTVColor} value={(this.props.userData.LTV / 1000) * 10} />
                 </div>
               </div>
             </div>

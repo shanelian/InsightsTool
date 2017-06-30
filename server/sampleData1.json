@@ -43,15 +43,15 @@
       "name": "Essentials Coupon",
       "type": "Opened",
       "color": "#F86C6B",
-      "left": "10px",
+      "left": "2%",
       "description": "Essential Coupon Email Opened"
     },
     {
-      "time": "2016/02/24",
+      "time": "2016/03/24",
       "name": "Deal",
       "type": "Opened",
       "color": "#F86C6B",
-      "left": "30px",
+      "left": "10%",
       "description": "Deal Email Opened"
     }
   ],
@@ -61,8 +61,16 @@
       "name": "Laundry Detergent Complain",
       "type": "Complain",
       "color": "#F86C6B",
-      "left": "40px",
+      "left": "10%",
       "description": "Complain About Laundry Detergent"
+    },
+    {
+      "time": "2017/03/31",
+      "name": "AELP Cancellation",
+      "type": "Cancellation",
+      "color": "#F86C6B",
+      "left": "70%",
+      "description": "Mbr called to cancel AELP order.  Out of country cannot accept at this time.  Call to RTS but unable to do yet.  Not in receipt at UPS.  Agent will morning of 3/31 to issue RTS.  Will email mbr with confirmation."
     }
   ]
 }

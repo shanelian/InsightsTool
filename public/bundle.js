@@ -85106,16 +85106,22 @@
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (UserProfile.__proto__ || (0, _getPrototypeOf2.default)(UserProfile)).call(this, props));
 
 	    _this.state = {
-	      chart1Data: []
+	      chart1Data: [],
+	      scoreColor: "danger"
 	    };
 	    return _this;
 	  }
 
 	  (0, _createClass3.default)(UserProfile, [{
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      this.getScoreColor();
+	    }
+	  }, {
 	    key: 'getChartData',
 	    value: function getChartData() {
-	      var data1 = [75, 78, 63, 53, 34, 21, 12];
-	      var data2 = [65, 59, 84, 84, 51, 55, 40];
+	      var data1 = [75, 78, 63, 53, 34, 30, 23];
+	      var data2 = [65, 59, 84, 84, 51, 62, 89];
 	      var data3 = [12, 34, 45, 65, 78, 89, 97];
 	      switch (this.props.userData.userId) {
 	        case 1:
@@ -85140,7 +85146,7 @@
 	      var cardChartData1 = {
 	        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 	        datasets: [{
-	          label: 'My First dataset',
+	          label: 'User Rentention Score',
 	          backgroundColor: brandPrimary,
 	          borderColor: 'rgba(255,255,255,.55)',
 	          data: this.getChartData()
@@ -85185,55 +85191,6 @@
 	        }
 	      };
 
-	      // Card Chart 2
-	      var cardChartData2 = {
-	        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-	        datasets: [{
-	          label: 'My First dataset',
-	          backgroundColor: brandInfo,
-	          borderColor: 'rgba(255,255,255,.55)',
-	          data: [1, 18, 9, 17, 34, 22, 11]
-	        }]
-	      };
-
-	      var cardChartOpts2 = {
-	        maintainAspectRatio: false,
-	        legend: {
-	          display: false
-	        },
-	        scales: {
-	          xAxes: [{
-	            gridLines: {
-	              color: 'transparent',
-	              zeroLineColor: 'transparent'
-	            },
-	            ticks: {
-	              fontSize: 2,
-	              fontColor: 'transparent'
-	            }
-
-	          }],
-	          yAxes: [{
-	            display: false,
-	            ticks: {
-	              display: false,
-	              min: Math.min.apply(Math, cardChartData2.datasets[0].data) - 5,
-	              max: Math.max.apply(Math, cardChartData2.datasets[0].data) + 5
-	            }
-	          }]
-	        },
-	        elements: {
-	          line: {
-	            tension: 0.00001,
-	            borderWidth: 1
-	          },
-	          point: {
-	            radius: 4,
-	            hitRadius: 10,
-	            hoverRadius: 4
-	          }
-	        }
-	      };
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col card card-inverse card-primary' },
@@ -85296,6 +85253,39 @@
 	      );
 	    }
 	  }, {
+	    key: 'getScoreColor',
+	    value: function getScoreColor() {
+	      if (this.props.userData) {
+	        if (this.props.userData.rententionScore < 30) {
+	          this.setState({
+	            scoreColor: "danger"
+	          });
+	        } else if (this.props.userData.rententionScore >= 30 && this.props.userData.rententionScore < 70) {
+	          this.setState({
+	            scoreColor: "info"
+	          });
+	        } else {
+	          this.setState({
+	            scoreColor: "success"
+	          });
+	        }
+
+	        if (this.props.userData.LTV / 10000 < 0.3) {
+	          this.setState({
+	            LTVColor: "danger"
+	          });
+	        } else if (this.props.userData.LTV / 10000 >= 0.3 && this.props.userData.LTV / 10000 < 0.7) {
+	          this.setState({
+	            LTVColor: "info"
+	          });
+	        } else {
+	          this.setState({
+	            LTVColor: "success"
+	          });
+	        }
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      if (this.props.userData) {
@@ -85348,7 +85338,7 @@
 	                      'Retention Score'
 	                    )
 	                  ),
-	                  _react2.default.createElement(_reactstrap.Progress, { className: 'progress-xs my-1', color: 'danger', value: this.props.userData.rententionScore })
+	                  _react2.default.createElement(_reactstrap.Progress, { className: 'progress-xs my-1', color: this.state.scoreColor, value: this.props.userData.rententionScore })
 	                )
 	              ),
 	              _react2.default.createElement(
@@ -85360,6 +85350,7 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'h4 m-0' },
+	                    '$ ',
 	                    this.props.userData.LTV
 	                  ),
 	                  _react2.default.createElement(
@@ -85371,7 +85362,7 @@
 	                      'LTV (Life time value)'
 	                    )
 	                  ),
-	                  _react2.default.createElement(_reactstrap.Progress, { className: 'progress-xs my-1', color: 'info', value: this.props.userData.LTV })
+	                  _react2.default.createElement(_reactstrap.Progress, { className: 'progress-xs my-1', color: this.state.LTVColor, value: this.props.userData.LTV / 1000 * 10 })
 	                )
 	              )
 	            )
