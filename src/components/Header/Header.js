@@ -48,7 +48,7 @@ class Header extends Component {
       },
     })
       .then((response) => {
-      console.log('Response Data: ', response.data)
+        console.log('Response Data: ', response)
         this.props.dispatch(
           {
             type: 'UPDATE_USER_DATA',

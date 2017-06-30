@@ -1,7 +1,7 @@
 export default function () {
   return {
-    user: {
-      userData: {},
-    },
+    orderCheck: true,
+    emailCheck: true,
+    csCheck: true,
   }
 }
