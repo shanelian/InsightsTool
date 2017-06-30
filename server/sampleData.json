@@ -1,43 +1,92 @@
 {
-  "userName": "Shane Smith",
+  "user_id": "uid_1000000",
+  "userName": "TomandJerry",
+  "retention_score": "0.03",
+  "ltv_score": "364.6",
   "timeData": [
     {
-      "time": "2017/06/28/03:10:38",
+      "time": "2017-05-12 07:03:46",
       "event_category": "Email",
-      "event_description": "Email Sent",
+      "event_description": "EmailSent",
       "metaData": {
         "emailId": "#3894198",
-        "emailAddress": "sample@gmail.com"
+        "emailAddress": "tomandjerry@gmail.com",
+        "emailName": "CS_Wipes_LVR"
       },
       "media": "website"
     },
-
-    "2017/05/3/06:10:38": {
-      "event_category": "Order",
-      "event_description": "Order Shipped",
+    {
+      "time": "2017-05-12 07:08:15",
+      "event_category": "Email",
+      "event_description": "EmailOpen",
+      "metaData": {
+        "emailId": "#3894198",
+        "emailAddress": "tomandjerry@gmail.com",
+        "emailName": "CS_Wipes_LVR"
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-12 07:08:46",
+      "event_category": "Email",
+      "event_description": "EmailClicks",
+      "metaData": {
+        "emailId": "#3894198",
+        "emailAddress": "tomandjerry@gmail.com",
+        "emailName": "CS_Wipes_LVR"
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-0822:05:38",
+      "event_category": "subscriptions",
+      "event_description": "orders",
       "metaData": {
         "orderId": "#DNU7237829",
         "orderDetail": {
-          "orderType": "Essential Bundle",
+          "subsType": "diapers",
+          "last_shipped_on": "2017-05-16 05:38:23",
+          "next_shipment_on": "2017-07-28",
           "orderItems": [
-            "2893": "Baby Wipes",
-            "8923": "Hand sanitizer"
+            "2893-BabyWipes",
+            "8923-Diaper overnight"
           ]
         }
       },
       "media": "website"
     },
-    "2017/03/12/11:20:38": {
-      "event_category": "Order",
-      "event_description": "Order Shipped",
+    {
+      "call_date": "2017-03-29",
+      "event_category": "cs",
       "metaData": {
         "orderId": "#DNU7237829",
-        "orderDetail": {
-          "orderType": "Essential Bundle",
-          "orderItems": [
-            "2893": "Baby Wipes",
-            "8923": "Hand sanitizer"
-          ]
+        "metadata": {
+          "subscriptions": "DiapersBundle",
+          "Reason": "Mbr called to cancel AELP order.  Out of country cannot accept at this time.  Call to RTS but unable to do yet.  Not in receipt at UPS.  Agent will morning of 3/31 to issue RTS.  Will email mbr with confirmation."
+        }
+      },
+      "media": "website"
+    },
+    {
+      "call_date": "2017-03-30",
+      "event_category": "cs",
+      "metaData": {
+        "orderId": "#DNU7237829",
+        "metadata": {
+          "subscriptions": "DiapersBundle",
+          "Reason": "Issued RTS with UPS and was able to retrieve order #AELP and it will be returned to the WH.  Mbr is out of town and unable to receive it at this time.  Sent email to member to notify her of the successful RTS."
+        }
+      },
+      "media": "website"
+    },
+    {
+      "call_date": "2017-05-15",
+      "event_category": "cs",
+      "metaData": {
+        "orderId": "#DNU7237829",
+        "metadata": {
+          "subscriptions": "DiapersBundle",
+          "Reason": "Wipes Outage: Credit Added for Campaign 'Wipes Temporarily Out Of Stock 10"
         }
       },
       "media": "website"
