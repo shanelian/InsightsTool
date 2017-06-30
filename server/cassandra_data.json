@@ -1,1 +1,127 @@
-{"user_id":uid_1000000"userName":"TomandJerry","timeData":[{"time":"2017-04-1811:32:57","event_category":"Email","event_description":"EmailSent","metaData":{"emailId":"#3894198","emailAddress":"tomandjerry@gmail.com"},"media":"website"},{"time":"2017-05-0822:03:38","event_category":"Email","event_description":"EmailOpen","metaData":{"emailId":"#3894198","emailAddress":"tomandjerry@gmail.com"},"media":"website"},{"time":"2017-05-0822:03:38","event_category":"Email","event_description":"EmailClicks","metaData":{"emailId":"#3894198","emailAddress":"tomandjerry@gmail.com"},"media":"website"},{"time":"2017-05-0822:05:38""event_category":"Order","event_description":"OrderShipped","metaData":{"orderId":"#DNU7237829","orderDetail":{"orderType":"EssentialBundle","orderItems":["2893":"BabyWipes","8923":"Handsanitizer"]}},"media":"website"},{"time":"2017-05-0922:10:38""event_category":"Order","event_description":"OrderDelivered","metaData":{"orderId":"#DNU7237829","orderDetail":{"orderType":"EssentialBundle","orderItems":["2893":"BabyWipes","8923":"Handsanitizer"]}},"media":"website"},{"time":"2017-05-1122:10:38""event_category":"cs","event_description":"RMA","metaData":{"orderId":"#DNU7237829","metadata":{"Reason":"Calledtosetupexchange.IssuedERLandsentreplacements!",}},"media":"website"},{"time":"2017-05-1122:10:38""event_category":"cs","event_description":"RMA","metaData":{"orderId":"#DNU7237829","metadata":{"subscriptions":"EssentialsBundle""Reason":"Calledtosetupexchange.IssuedERLandsentreplacements!",}},"media":"website"},{"time":"2017-05-1122:15:38""event_category":"cs","event_description":"damaged","metaData":{"orderId":"#DNU7237830","metadata":{"subscriptions":"DiaperBundles""Reason":"Diapersweredamaged--aslitwascutinthepackage",}},"media":"website"},{"time":"2017-05-1122:20:38""event_category":"cs","event_description":"cancellations","metaData":{"orderId":"#DNU7237831","metadata":{"subscriptions":"FeedingBundles""Reason":"Membercalledtocanceltrial.Offered20%discountandholdonbundles.Memberaccepted.SavedDB/EB",}},"media":"website"}]}
+{
+  "user_id": uid_1000000
+  "userName": "TomandJerry",
+  "timeData": [
+    {
+      "time": "2017-04-1811:32:57",
+      "event_category": "Email",
+      "event_description": "EmailSent",
+      "metaData": {
+        "emailId": "#3894198",
+        "emailAddress": "tomandjerry@gmail.com"
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-0822:03:38",
+      "event_category": "Email",
+      "event_description": "EmailOpen",
+      "metaData": {
+        "emailId": "#3894198",
+        "emailAddress": "tomandjerry@gmail.com"
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-0822:03:38",
+      "event_category": "Email",
+      "event_description": "EmailClicks",
+      "metaData": {
+        "emailId": "#3894198",
+        "emailAddress": "tomandjerry@gmail.com"
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-0822:05:38"
+      "event_category": "Order",
+      "event_description": "OrderShipped",
+      "metaData": {
+        "orderId": "#DNU7237829",
+        "orderDetail": {
+          "orderType": "EssentialBundle",
+          "orderItems": [
+            "2893"
+            :
+            "BabyWipes",
+            "8923"
+            :
+            "Handsanitizer"
+          ]
+        }
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-0922:10:38"
+      "event_category": "Order",
+      "event_description": "OrderDelivered",
+      "metaData": {
+        "orderId": "#DNU7237829",
+        "orderDetail": {
+          "orderType": "EssentialBundle",
+          "orderItems": [
+            "2893"
+            :
+            "BabyWipes",
+            "8923"
+            :
+            "Handsanitizer"
+          ]
+        }
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-1122:10:38"
+      "event_category": "cs",
+      "event_description": "RMA",
+      "metaData": {
+        "orderId": "#DNU7237829",
+        "metadata": {
+          "Reason": "Calledtosetupexchange.IssuedERLandsentreplacements!"
+        }
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-1122:10:38"
+      "event_category": "cs",
+      "event_description": "RMA",
+      "metaData": {
+        "orderId": "#DNU7237829",
+        "metadata": {
+          "subscriptions": "EssentialsBundle"
+          "Reason": "Calledtosetupexchange.IssuedERLandsentreplacements!"
+        }
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-1122:15:38"
+      "event_category": "cs",
+      "event_description": "damaged",
+      "metaData": {
+        "orderId": "#DNU7237830",
+        "metadata": {
+          "subscriptions": "DiaperBundles"
+          "Reason": "Diapersweredamaged--aslitwascutinthepackage"
+        }
+      },
+      "media": "website"
+    },
+    {
+      "time": "2017-05-1122:20:38"
+      "event_category": "cs",
+      "event_description": "cancellations",
+      "metaData": {
+        "orderId": "#DNU7237831",
+        "metadata": {
+          "subscriptions": "FeedingBundles"
+          "Reason": "Membercalledtocanceltrial.Offered20%discountandholdonbundles.Memberaccepted.SavedDB/EB"
+        }
+      },
+      "media": "website"
+    }
+  ]
+}

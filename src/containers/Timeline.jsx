@@ -13,12 +13,74 @@ export default class Timeline extends React.Component {
     super(props)
 
     this.state = {
-      destroyTooltipOnHide: true,
     }
   }
 
+  buildMainHeader() {
+    return (
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
+        <div
+          className="col"
+          style={{
+            padding: '20px',
+            display: 'flex',
+            justifyContent: 'flex-start',
+          }}
+        >
+          <IconButton>
+            <i className="material-icons">keyboard_arrow_left</i>
+          </IconButton>
+          <p style={{
+            fontSize: '24px',
+            fontFamily: 'Brandon Text',
+            fontWeight: 500,
+            position: 'relative',
+            bottom: '-4',
+          }}
+          >
+            2016/1/1 - 2017/5/1
+          </p>
+          <IconButton>
+            <i className="material-icons">keyboard_arrow_right</i>
+          </IconButton>
+        </div>
+
+        <div
+          className="col"
+          style={{
+            padding: '20px',
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <p
+            style={{
+              fontSize: '18px',
+              position: 'relative',
+              bottom: '-4',
+              fontFamily: 'Brandon Text',
+              fontWeight: 500,
+            }}
+          >
+            View:
+          </p>
+          <FlatButton label="Week" primary/>
+          <FlatButton label="Month" secondary/>
+          <FlatButton label="Year"/>
+        </div>
+      </div>
+    )
+  }
+
   buildPaper() {
-    if (this.props.userData) {
+    const header = this.buildMainHeader()
+    const label = this.buildTimeLabel()
+    if (this.props.timelineData) {
+      const dot = this.buildDots()
       return (
         <Paper
           zDepth={3}
@@ -28,59 +90,15 @@ export default class Timeline extends React.Component {
             width: '95%',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-            }}
-          >
-            <div
-              className="col"
-              style={{
-                padding: '20px',
-                display: 'flex',
-                justifyContent: 'flex-start',
-              }}
-            >
-              <IconButton>
-                <i className="material-icons">keyboard_arrow_left</i>
-              </IconButton>
-              <p style={{fontSize: '24px', position: 'relative', bottom: '-4'}}>4/20/17 - 4/26/17</p>
-              <IconButton>
-                <i className="material-icons">keyboard_arrow_right</i>
-              </IconButton>
-            </div>
-
-            <div
-              className="col"
-              style={{
-                padding: '20px',
-                display: 'flex',
-                justifyContent: 'flex-end',
-              }}
-            >
-              <p
-                style={{
-                  fontSize: '18px',
-                  position: 'relative',
-                  bottom: '-4',
-                }}
-              >
-                View:
-              </p>
-              <FlatButton label="Week" primary/>
-              <FlatButton label="Month" secondary/>
-              <FlatButton label="Year"/>
-            </div>
-          </div>
-
+          {header}
           <div
             className="timeline"
             style={{
               justifyContent: 'center',
-              alignItems: 'center',
               marginTop: '5%',
             }}
           >
+            {dot}
             <hr
               style={{
                 height: '3px',
@@ -88,39 +106,67 @@ export default class Timeline extends React.Component {
               }}
             />
           </div>
+          {label}
         </Paper>
       )
     }
     return null
   }
 
-  buildDots() {
-    if (!this.props.userData.order) {
-      console.log('No order')
-      return null
-    }
-    for (const order in this.props.userData.order) {
-      console.log('Each order: ', order)
-    }
-    const dot = (
-      <Paper
-        zDepth={3}
-        circle
+  buildTimeLabel() {
+    return (
+      <div
         style={{
-          backgroundColor: '#83cddd',
-          width: '20px',
-          height: '20px',
-          position: 'relative',
-          bottom: '-18px',
-          left: '30px',
+          display: 'flex',
+          marginTop: '15%',
+          justifyContent: 'space-between',
+          fontFamily: 'Brandon Text',
+          fontWeight: 500,
+          paddingLeft: '10px',
+          paddingRight: '10px',
         }}
-      />
+      >
+        <p>Jan 2016</p>
+        <p>Mar 2016</p>
+        <p>May 2016</p>
+        <p>July 2016</p>
+        <p>Sept 2016</p>
+        <p>Nov 2016</p>
+        <p>Jan 2017</p>
+        <p>Mar 2017</p>
+        <p>May 2017</p>
+      </div>
     )
-    return dot
+  }
+
+  buildDots() {
+    const result = []
+    if (this.props.timelineData) {
+      for (const item of this.props.timelineData) {
+        console.log('Each item: ', item)
+        const dot = (
+          <Paper
+            zDepth={3}
+            circle
+            style={{
+              backgroundColor: item.color,
+              width: '20px',
+              height: '20px',
+              position: 'relative',
+              left: item.left,
+              top: '25px',
+              display: 'inline-block',
+            }}
+          />
+        )
+        result.push(dot)
+      }
+    }
+    console.log('Data not exist')
+    return result
   }
 
   render() {
-    const dot = this.buildDots()
     const main = this.buildPaper()
     return (
       <div
@@ -137,12 +183,10 @@ export default class Timeline extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  orderCheck: state.orderCheck,
-  emailCheck: state.emailCheck,
-  csCheck: state.csCheck,
+  userData: state.userData,
 })
 
 export const TimelineContainer = connect(
-  mapStateToProps,
+  null,
   null,
 )(Timeline)

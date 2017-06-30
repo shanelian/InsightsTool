@@ -9,7 +9,7 @@
       "name": "Essentials Bundle",
       "type": "purchased",
       "color": "#63C2DE",
-      "left": "30px",
+      "left": "3%",
       "description": "Essential Bundle Subscribed"
     },
     {
@@ -17,7 +17,7 @@
       "name": "Mineral Sunscreen Spray SPF 30",
       "type": "purchased",
       "color": "#4FBE7F",
-      "left": "50px",
+      "left": "10%",
       "description": "Single Purchased"
     },
     {
@@ -25,7 +25,7 @@
       "name": "Laundry Detergent",
       "type": "purchased",
       "color": "#63C2DE",
-      "left": "60px",
+      "left": "20%",
       "description": "Laundry Detergent Purchased"
     },
     {
@@ -33,7 +33,7 @@
       "name": "Essentials Bundle",
       "type": "Cancelled",
       "color": "#F86C6B",
-      "left": "100px",
+      "left": "50%",
       "description": "Essential Bundle Cancelled"
     }
   ],

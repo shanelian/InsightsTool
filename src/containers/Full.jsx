@@ -3,10 +3,10 @@ import { Link, Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { HeaderContainer } from '../components/Header/Header'
 import { SidebarContainer } from '../components/Sidebar/Sidebar'
-import Aside from '../components/Aside/Aside'
 import { OrderContainer } from '../views/Order/Orders'
 import { UserProfileContainer } from '../components/User_profile'
-import { TimelineContainer } from './Timeline'
+import { EmailContainer } from '../views/Email/Email'
+import { CustomerServiceContainer } from '../views/Customer Service/Customer_Service'
 
 class Full extends Component {
   render() {
@@ -19,13 +19,13 @@ class Full extends Component {
             <UserProfileContainer />
             <div className="container-fluid">
               <Switch>
-                <Route path="/order" name="Orders" component={OrderContainer} />
+                <Route path="/order" name="Orders" component={OrderContainer} userData={this.props.userData} />
+                <Route path="/email" name="Email" component={EmailContainer} userData={this.props.userData} />
+                <Route path="/customer_service" name="Customer Service" component={CustomerServiceContainer} userData={this.props.userData} />
                 <Redirect from="/" to="/order" />
               </Switch>
-              <TimelineContainer />
             </div>
           </main>
-          <Aside />
         </div>
       </div>
     );

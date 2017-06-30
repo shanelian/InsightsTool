@@ -24,7 +24,7 @@ export default class UserProfile extends React.Component {
       case 3:
         return data3
     }
-    return []
+
   }
 
   buildChartData() {

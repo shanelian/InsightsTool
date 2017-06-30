@@ -1,35 +1,16 @@
-import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom'
-import {
-  Checkbox,
-} from 'material-ui'
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-class Sidebar extends React.Component {
-  constructor(props) {
-    super(props)
+class Sidebar extends Component {
 
-    this.state = {
-    }
+  handleClick(e) {
+    e.preventDefault();
+    e.target.parentElement.classList.toggle('open');
   }
 
-  handleOrderClick(e) {
-    console.log('Now order is :', this.props.orderCheck)
-    this.props.dispatch({
-      type: 'TOGGLE_ORDER',
-    })
-  }
-
-  handleEmailClick(e) {
-    this.props.dispatch({
-      type: 'TOGGLE_EMAIL',
-    })
-  }
-
-  handleCSClick(e) {
-    this.props.dispatch({
-      type: 'TOGGLE_CS',
-    })
+  activeRoute(routeName) {
+    return this.props.location.pathname.indexOf(routeName) > -1 ? 'nav-item nav-dropdown open' : 'nav-item nav-dropdown';
   }
 
   render() {
@@ -38,42 +19,21 @@ class Sidebar extends React.Component {
         <nav className="sidebar-nav">
           <ul className="nav">
             <li className="nav-item">
-              <NavLink to={'/dashboard'} className="nav-link">
-                <Checkbox
-                  label="Orders"
-                  labelStyle={{
-                    color: 'white',
-                  }}
-                  iconStyle={{ fill: '#F86C6B' }}
-                  onCheck={this.handleOrderClick.bind(this)}
-                  checked={this.props.orderCheck}
-                />
+              <NavLink to={'/order'} className="nav-link" activeClassName="active">
+                <i className="icon-handbag"></i>
+                Orders
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to={'/dashboard'} className="nav-link" activeClassName="active">
-                <Checkbox
-                  label="Email"
-                  labelStyle={{
-                    color: 'white',
-                  }}
-                  iconStyle={{ fill: '#F86C6B' }}
-                  onCheck={this.handleEmailClick.bind(this)}
-                  checked={this.props.emailCheck}
-                />
+            <NavLink to={'/email'} className="nav-link" activeClassName="active">
+                <i className="icon-envelope"></i>
+                Emails
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to={'/dashboard'} className="nav-link" activeClassName="active">
-                <Checkbox
-                  label="Customer Service"
-                  labelStyle={{
-                    color: 'white',
-                  }}
-                  iconStyle={{ fill: '#F86C6B' }}
-                  onCheck={this.handleCSClick.bind(this)}
-                  checked={this.props.csCheck}
-                />
+              <NavLink to={'/customer_service'} className="nav-link" activeClassName="active">
+                <i className="icon-phone"></i>
+                Customer Service
               </NavLink>
             </li>
           </ul>
@@ -84,9 +44,7 @@ class Sidebar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  orderCheck: state.orderCheck,
-  emailCheck: state.emailCheck,
-  csCheck: state.csCheck,
+  userData: state.userData,
 })
 
 export const SidebarContainer = connect(
