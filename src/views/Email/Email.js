@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { TimelineContainer } from '../../containers/Timeline'
+import Detail from '../../containers/Detail'
+
 
 class Email extends React.Component {
   constructor(props) {
@@ -18,11 +20,24 @@ class Email extends React.Component {
     return null
   }
 
+  buildDetails() {
+    if (this.props.userData) {
+      return (
+        <Detail
+          detailData={this.props.userData.Email}
+        />
+      )
+    }
+    return null
+  }
+
   render() {
     const timeline = this.buildTimeline()
+    const detail = this.buildDetails()
     return (
       <div className="animated fadeIn">
         {timeline}
+        {detail}
       </div>
     )
   }

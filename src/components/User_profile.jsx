@@ -156,7 +156,9 @@ export default class UserProfile extends React.Component {
             </Dropdown>
           </div>
           <h4 className="mb-0">{this.props.userData.rententionScore}</h4>
-          <p>Retention Score</p>
+          <p style={{ fontSize: '18px' }}>
+            Retention Score
+          </p>
         </div>
         <div className="chart-wrapper px-3">
           <Line data={cardChartData1} options={cardChartOpts1} height={70}/>
@@ -190,14 +192,18 @@ export default class UserProfile extends React.Component {
               <div className="card">
                 <div className="card-block">
                   <div className="h4 m-0">{this.props.userData.rententionScore}</div>
-                  <div>Retention Score</div>
+                  <div>
+                    <p style={{ fontSize: '20px' }}>Retention Score</p>
+                  </div>
                   <Progress className="progress-xs my-1" color="danger" value={this.props.userData.rententionScore}/>
                 </div>
               </div>
               <div className="card">
                 <div className="card-block">
                   <div className="h4 m-0">{this.props.userData.LTV}</div>
-                  <div>LTV (Life time value)</div>
+                  <div>
+                    <p style={{ fontSize: '20px' }}>LTV (Life time value)</p>
+                  </div>
                   <Progress className="progress-xs my-1" color="info" value={this.props.userData.LTV} />
                 </div>
               </div>

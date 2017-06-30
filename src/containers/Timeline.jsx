@@ -68,9 +68,9 @@ export default class Timeline extends React.Component {
           >
             View:
           </p>
-          <FlatButton label="Week" primary/>
-          <FlatButton label="Month" secondary/>
-          <FlatButton label="Year"/>
+          <FlatButton label="Week" primary />
+          <FlatButton label="Month" secondary />
+          <FlatButton label="Year" />
         </div>
       </div>
     )
@@ -145,19 +145,35 @@ export default class Timeline extends React.Component {
       for (const item of this.props.timelineData) {
         console.log('Each item: ', item)
         const dot = (
-          <Paper
-            zDepth={3}
-            circle
-            style={{
-              backgroundColor: item.color,
-              width: '20px',
-              height: '20px',
-              position: 'relative',
-              left: item.left,
-              top: '25px',
-              display: 'inline-block',
-            }}
-          />
+            <IconButton
+              tooltip={
+                <div
+                  style={{
+                    fontSize: '16px',
+                    fontFamily: 'Brandon Text',
+                  }}
+                >
+                  <p>{item.description}</p>
+                  <p>{item.time}</p>
+                </div>
+              }
+              tooltipPosition="top-left"
+              style={{
+                position: 'relative',
+                left: item.left,
+                top: '32px',
+                display: 'inline-block',
+              }}
+              iconStyle={{
+                color: item.color,
+              }}
+            >
+              <i
+                className="material-icons"
+              >
+                add_circle
+              </i>
+            </IconButton>
         )
         result.push(dot)
       }

@@ -1,24 +1,16 @@
 {
   "userId": 2,
-  "userName": "Test user 2",
+  "userName": "Tomand Jerry",
   "rententionScore": 87,
   "LTV": 7976,
   "order": [
     {
       "time": "2016/01/28/",
       "name": "Essentials Bundle",
-      "type": "purchased",
+      "type": "Purchased",
       "color": "#63C2DE",
       "left": "30px",
       "description": "Essential Bundle Subscribed"
-    },
-    {
-      "time": "2016/02/22/",
-      "name": "Mineral Sunscreen Spray SPF 30",
-      "type": "purchased",
-      "color": "#4FBE7F",
-      "left": "50px",
-      "description": "Single Purchased"
     },
     {
       "time": "2016/03/24",
@@ -27,42 +19,42 @@
       "color": "#63C2DE",
       "left": "60px",
       "description": "Laundry Detergent Purchased"
-    },
-    {
-      "time": "2016/09/24",
-      "name": "Essentials Bundle",
-      "type": "Cancelled",
-      "color": "#F86C6B",
-      "left": "100px",
-      "description": "Essential Bundle Cancelled"
     }
   ],
   "Email": [
     {
-      "time": "2016/01/24",
+      "time": "2017-04-18",
       "name": "Essentials Coupon",
-      "type": "Opened",
-      "color": "#F86C6B",
-      "left": "10px",
-      "description": "Essential Coupon Email Opened"
+      "type": "Email Sent",
+      "description": "Essentials Coupon Email Sent",
+      "color": "#63C2DE",
+      "left": "90%"
     },
     {
-      "time": "2016/02/24",
-      "name": "Deal",
-      "type": "Opened",
+      "time": "2016-03-18",
+      "name": "Essentials Coupon",
+      "type": "Email Sent",
+      "description": "Essentials Coupon Email Sent",
+      "color": "#4FBE7F",
+      "left": "20%"
+    },
+    {
+      "time": "2016-03-18",
+      "name": "Essentials Coupon",
+      "type": "Email Unsubscribed",
+      "description": "Essentials Coupon Email Unsubscribed",
       "color": "#F86C6B",
-      "left": "30px",
-      "description": "Deal Email Opened"
+      "left": "40%"
     }
   ],
   "CustomerService": [
     {
-      "time": "2016/03/24",
-      "name": "Laundry Detergent Complain",
+      "time": "2017/03/24",
+      "name": "Setup Exchange",
       "type": "Complain",
       "color": "#F86C6B",
-      "left": "40px",
-      "description": "Complain About Laundry Detergent"
+      "left": "80%",
+      "description": "Called to setup exchange. Issued ERL and sent replacements!"
     }
   ]
 }

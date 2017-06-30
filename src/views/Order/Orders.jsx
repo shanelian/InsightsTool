@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { TimelineContainer } from '../../containers/Timeline'
-import Detail from "../../containers/Detail";
+import Detail from '../../containers/Detail'
 
 class Order extends React.Component {
   constructor(props) {
