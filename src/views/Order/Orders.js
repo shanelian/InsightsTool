@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Timeline from '../../containers/Timeline'
+import { TimelineContainer } from '../../containers/Timeline'
 import Detail from '../../containers/Detail'
 
 class Order extends Component {
@@ -9,14 +9,9 @@ class Order extends Component {
   }
 
   render() {
-    let response = this.props.userData
-    if (!response) {
-      response = 'No data yet'
-    }
     return (
       <div className="animated fadeIn">
-        {response}
-        <Timeline
+        <TimelineContainer
           timelineType="Orders"
         />
         <Detail

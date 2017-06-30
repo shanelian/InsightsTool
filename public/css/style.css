@@ -35,11 +35,6 @@ main {
 figure {
   margin: 1em 40px; }
 
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible; }
-
 pre {
   font-family: monospace, monospace;
   font-size: 1em; }
@@ -288,10 +283,6 @@ body {
 [tabindex="-1"]:focus {
   outline: none !important; }
 
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible; }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
@@ -574,11 +565,6 @@ h6, .h6 {
   font-weight: 300;
   line-height: 1.1; }
 
-hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 small,
 .small {
@@ -3233,42 +3219,6 @@ a.badge:focus, a.badge:hover {
   right: -1.25rem;
   padding: 0.75rem 1.25rem;
   color: inherit; }
-
-.alert-success {
-  color: #3c763d;
-  background-color: #dff0d8;
-  border-color: #d0e9c6; }
-  .alert-success hr {
-    border-top-color: #c1e2b3; }
-  .alert-success .alert-link {
-    color: #2b542c; }
-
-.alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bcdff1; }
-  .alert-info hr {
-    border-top-color: #a6d5ec; }
-  .alert-info .alert-link {
-    color: #245269; }
-
-.alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faf2cc; }
-  .alert-warning hr {
-    border-top-color: #f7ecb5; }
-  .alert-warning .alert-link {
-    color: #66512c; }
-
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebcccc; }
-  .alert-danger hr {
-    border-top-color: #e4b9b9; }
-  .alert-danger .alert-link {
-    color: #843534; }
 
 @keyframes progress-bar-stripes {
   from {
